@@ -14,7 +14,7 @@ type commands struct {
 func (c *commands) run(s *state, cmd command) error {
 	commandHandler, ok := c.CommandToHandler[cmd.Name]
 	if !ok {
-		return errors.New("command does not exist")
+		return errors.New("command not found")
 	}
 
 	return commandHandler(s, cmd)
@@ -30,6 +30,9 @@ func generateCommands() commands {
 	}
 
 	cmds.register("login", handlerLogin)
+	cmds.register("register", handlerRegister)
+	cmds.register("reset", handlerReset)
+	cmds.register("users", handlerUsers)
 
 	return cmds
 }
