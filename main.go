@@ -14,13 +14,30 @@ func main() {
 		os.Exit(1)
 	}
 
-	cfg.SetUser("mino")
+	state := state{
+		cfg: &cfg,
+	}
 
-	cfg, err = config.Read()
+	commands := generateCommands()
+
+	if len(os.Args) < 2 {
+		fmt.Println("no command was passed")
+		os.Exit(1)
+	}
+
+	cmd := command{
+		Name: os.Args[1],
+		Args: os.Args[2:],
+	}
+
+	err = commands.run(&state, cmd)
+
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
+}
 
-	fmt.Println(cfg.SPrint())
+type state struct {
+	cfg *config.Config
 }

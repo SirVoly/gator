@@ -10,12 +10,12 @@ type Config struct {
 	CurrentUserName string `json:"current_user_name"`
 }
 
-func (c Config) SetUser(user_name string) {
+func (c *Config) SetUser(user_name string) error {
 	c.CurrentUserName = user_name
-	write(c)
+	return write(*c)
 }
 
-func (c Config) SPrint() string {
+func (c *Config) SPrint() string {
 	var result []string
 
 	result = append(result, "Config:")
