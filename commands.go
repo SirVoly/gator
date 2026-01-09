@@ -1,7 +1,7 @@
 package main
 
 import (
-	"errors";
+	"errors"
 	"fmt"
 )
 
@@ -36,6 +36,8 @@ func generateCommands() commands {
 	cmds.register("register", handlerRegister)
 	cmds.register("reset", handlerReset)
 	cmds.register("users", handlerUsers)
+	cmds.register("debug", handlerDebug)
+	cmds.register("help", handlerHelp)
 
 	return cmds
 }
