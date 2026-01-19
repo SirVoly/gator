@@ -41,6 +41,22 @@ func handlerAddFeed(s *state, cmd command) error {
 	if err != nil {
 		return fmt.Errorf("feed %s already exists", url)
 	}
+
+	follow_id := uuid.New()
+	_, err = s.db.CreateFeedFollow(
+		context.Background(),
+		database.CreateFeedFollowParams{
+			ID:			follow_id,
+			CreatedAt: 	t,
+			UpdatedAt: 	t,
+			UserID: 	user.ID,
+			FeedID: 	feed.ID,
+		},
+	)
+
+	if err != nil {
+		return fmt.Errorf("could not add user as a follower of the feed")
+	}
 	
 	fmt.Printf("Feed was created: \n")
 
