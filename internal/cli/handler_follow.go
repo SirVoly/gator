@@ -9,7 +9,7 @@ import (
 	"github.com/google/uuid"
 )
 
-func handlerFollow(s *state, cmd command) error {
+func handlerFollow(s *state, cmd command, user database.User) error {
 	if len(cmd.Args) < 1 {
 		return fmt.Errorf("usage: %s <url>", cmd.Name)
 	}
@@ -17,11 +17,6 @@ func handlerFollow(s *state, cmd command) error {
 	
 	id := uuid.New()
 	t := time.Now()
-
-	user, err := s.db.GetUser(context.Background(), s.cfg.GetUser())
-	if err != nil {
-		return fmt.Errorf("user %s was not found", s.cfg.GetUser())
-	}
 
 	feed, err := s.db.GetFeed(context.Background(), url)
 	if err != nil {

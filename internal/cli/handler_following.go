@@ -3,12 +3,14 @@ package cli
 import (
 	"context"
 	"fmt"
+
+	"github.com/SirVoly/gator/internal/database"
 )
 
-func handlerFollowing(s *state, cmd command) error {
+func handlerFollowing(s *state, cmd command, user database.User) error {
 	followedfeeds, err := s.db.GetFeedFollowsForUser(
 		context.Background(),
-		s.cfg.CurrentUserName,
+		user.Name,
 	)
 
 	if err != nil {
