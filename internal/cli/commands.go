@@ -38,6 +38,7 @@ func generateCommands() commands {
 	cmds.register("users", handlerUsers)
 	cmds.register("debug", handlerDebug)
 	cmds.register("help", handlerHelp)
+	cmds.register("agg", handlerAgg)
 
 	return cmds
 }
