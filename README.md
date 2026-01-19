@@ -21,11 +21,36 @@ This project was build with the intention of hands-on practice in GO, PostgreSQL
 
 To run this project, follow these steps:
 
-TODO
+    Copy the repo on your pc
+    Install [GO](https://go.dev/doc/install)
+    Install PostgreSQL:
+        sudo apt update
+        sudo apt install postgresql postgresql-contrib
+        (Linux Only) sudo passwd postgres (This sets the password, use something easy like postgres)
+    Create the Gator database:
+        sudo service postgresql start
+        sudo -u postgres psql
+        CREATE DATABASE gator;
+        (Linux Only) ALTER USER postgres PASSWORD 'postgres';
+    Update the Gator database:
+        install Goose: go install github.com/pressly/goose/v3/cmd/goose@latest
+        cd sql/schema/
+        goose postgres postgres://postgres:<PASSWORD>@localhost:5432/gator up
+    Create your own gator config:
+        nano ~/.gatorconfig.json
+        Add the following json:
+            {
+                "db_url": "postgres://postgres:<PASSWORD>@localhost:5432/gator"
+            }
+    
+    Now your initial setup is complete!
 
 ## Usage
 
-TODO
+    Before using gator, make sure your postgres database is up and running:
+        sudo service postgresql start
+    Now you can use gator!
+        go run . help
 
 # Credit
 This project was completed as part of a guided course on [Boot.dev](https://www.boot.dev).
