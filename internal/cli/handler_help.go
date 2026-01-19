@@ -15,6 +15,7 @@ func handlerHelp(s *state, cmd command) error {
 	fmt.Printf("\tusers\t\tview all registered users\n")
 	fmt.Printf("\taddfeed\t\tadds a feed in the name of the logged in user\n")
 	fmt.Printf("\tfollow\t\tadds the logged in user as a follower of the feed\n")
+	fmt.Printf("\tunfollow\t\removes the logged in user as a follower of the feed\n")
 	fmt.Printf("\tfeeds\t\tview all feeds\n")
 	fmt.Printf("\following\t\tview all feeds that the current user follows\n")
 	fmt.Printf("\nThe following commands are for development only:\n\n")
