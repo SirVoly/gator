@@ -15,6 +15,10 @@ func (c *Config) SetUser(user_name string) error {
 	return write(*c)
 }
 
+func (c *Config) GetUser() string {
+	return c.CurrentUserName
+}
+
 func (c *Config) SPrint() string {
 	var result []string
 

@@ -13,6 +13,7 @@ func handlerHelp(s *state, cmd command) error {
 	fmt.Printf("\tlogin\t\tlogin using your username\n")
 	fmt.Printf("\tregister\tregister your username\n")
 	fmt.Printf("\tusers\t\tview all registered users\n")
+	fmt.Printf("\taddfeed\t\tadds a feed in the name of the logged in user\n")
 	fmt.Printf("\nThe following commands are for development only:\n\n")
 	fmt.Printf("\tdebug\t\ta special command to test specific parts\n")
 	fmt.Printf("\treset\t\treset the full database.\n")
