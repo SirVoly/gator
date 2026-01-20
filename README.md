@@ -42,7 +42,9 @@ To run this project, follow these steps:
             {
                 "db_url": "postgres://postgres:<PASSWORD>@localhost:5432/gator"
             }
-    
+    Lastely, we will build the actual program:
+        go build . (while in the root of the gator project)
+
     Now your initial setup is complete!
 
 ## Usage
@@ -50,7 +52,10 @@ To run this project, follow these steps:
     Before using gator, make sure your postgres database is up and running:
         sudo service postgresql start
     Now you can use gator!
-        go run . help
+    See gator help for command information
+    You will have to start with
+        gator register <username>
+        gator login <username>
 
 # Credit
 This project was completed as part of a guided course on [Boot.dev](https://www.boot.dev).
