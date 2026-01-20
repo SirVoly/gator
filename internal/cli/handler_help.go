@@ -19,6 +19,7 @@ func handlerHelp(s *state, cmd command) error {
 	fmt.Printf("\tfeeds\t\tview all feeds\n")
 	fmt.Printf("\tfollowing\tview all feeds that the current user follows\n")
 	fmt.Printf("\tagg\t\tinfinitly fetches posts from the feeds using the passed duration\n")
+	fmt.Printf("\tbrowse\t\tshows the most recent posts\n")
 	fmt.Printf("\nThe following commands are for development only:\n\n")
 	fmt.Printf("\tdebug\t\ta special command to test specific parts\n")
 	fmt.Printf("\treset\t\treset the full database.\n")
