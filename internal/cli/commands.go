@@ -1,7 +1,6 @@
 package cli
 
 import (
-	"errors"
 	"fmt"
 )
 
@@ -17,7 +16,7 @@ type commands struct {
 func (c *commands) run(s *state, cmd command) error {
 	commandHandler, ok := c.CommandToHandler[cmd.Name]
 	if !ok {
-		return errors.New(fmt.Sprintf("command %s not found", cmd.Name))
+		return fmt.Errorf("command %s not found", cmd.Name)
 	}
 
 	return commandHandler(s, cmd)
